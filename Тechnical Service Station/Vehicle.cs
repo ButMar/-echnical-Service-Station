@@ -32,11 +32,16 @@ namespace Тechnical_Service_Station
 
         public void СonditionOFvehicle()
         {
-            int СonditionResult = (MstateBody + MstateWheel + MstateEngine + MstateChassis) / 4;
+            int a = MstateBody;
+            int b = MstateWheel;
+            int c = MstateEngine;
+            int d = MstateChassis;
+
+            float СonditionResult = (a + b + c + d) / 4;
 
             if (СonditionResult > 0)
             {
-                Console.WriteLine("Сondition of vehicle = " + СonditionResult + "Сontact the service department");
+                Console.WriteLine("Сondition of vehicle = " + СonditionResult + " Сontact the service department");
             }
             else
             {
@@ -45,11 +50,22 @@ namespace Тechnical_Service_Station
 
         }
 
+
         public void СostOFrepair()
         {
+            float k = MstateBody;
+            float m = MstateWheel;
+            float n = MstateEngine;
+            float f = MstateChassis;
 
+            if (k > 0 && m > 0 && n > 0 && f > 0 ) ;
+
+            //float CostResult = (k * 10) + (m * 10) + (n * 10) + (f * 10);
+            float CostResult = (k + m + n + f) * costOfRrepairPart;
+
+            Console.WriteLine("Cost of repaire You car = " + CostResult + " hryvnias");
         }
-}
+    }
 }
  
 
