@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Тechnical_Service_Station
+namespace ТechnicalServiceStation
 {
     public class Car : Vehicle
     {
@@ -12,5 +12,6 @@ namespace Тechnical_Service_Station
                int stateChassis) : base(brand, model, color, stateBody, stateWheel, stateEngine, stateChassis)
         {
         }
+
     }
 }

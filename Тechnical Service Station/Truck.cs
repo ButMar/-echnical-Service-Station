@@ -4,14 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Тechnical_Service_Station
+namespace ТechnicalServiceStation
 {
-    //public class Truck : Vehicle
-    //{
-    //    protected int stateHydraulics;
-    //    public Truck()
-    //    {
-    //    }
+    public class Truck : Vehicle
+    {
+        protected int stateHydraulics;
+        public Truck(string brand, string model, string color, int stateBody, int stateWheel, int stateEngine,
+               int stateChassis, int stateHydraulics) : base(brand, model, color, stateBody, stateWheel, stateEngine, stateChassis)
+        {
+          this.stateHydraulics = stateHydraulics;
+        }
 
-    //}
+
+
+        public override void СonditionOFvehicle()
+        {
+            float СonditionResult = (stateBody + stateWheel + stateEngine + stateChassis + stateHydraulics) / 5;
+
+            if (СonditionResult > 0)
+            {
+                Console.WriteLine("Сondition of vehicle = " + СonditionResult + " Сontact the service department");
+            }
+            else
+            {
+                Console.WriteLine("Сondition of vehicle is good ");
+            }
+
+        }
+
+        //public override void СonditionOFvehicle()
+        //{
+        //    base.СonditionOFvehicle();
+        //}
+
+    }
 }

@@ -5,39 +5,34 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Тechnical_Service_Station
+namespace ТechnicalServiceStation
 {
     public class Vehicle
     {
-        protected string Mbrand;
-        protected string Mmodel;
-        protected string Mcolor;
-        protected int MstateBody;
-        protected int MstateWheel;
-        protected int MstateEngine;
-        protected int MstateChassis;
-        protected int costOfRrepairPart = 10;
+        protected string brand;
+        protected string model;
+        protected string color;
+        protected int stateBody;
+        protected int stateWheel;
+        protected int stateEngine;
+        protected int stateChassis;
+        
 
         public Vehicle(string brand, string model, string color, int stateBody,
                        int stateWheel,int stateEngine, int stateChassis)
         {
-          Mbrand = brand;
-          Mmodel = model;
-          Mcolor = color;
-          MstateBody = stateBody;
-          MstateWheel = stateWheel;
-          MstateEngine = stateEngine;
-          MstateChassis = stateChassis;
+          this.brand = brand;
+          this.model = model;
+          this.color = color;
+          this.stateBody = stateBody;
+          this.stateWheel = stateWheel;
+          this.stateEngine = stateEngine;
+          this.stateChassis = stateChassis;
         }
 
-        public void СonditionOFvehicle()
+        public virtual void СonditionOFvehicle()
         {
-            int a = MstateBody;
-            int b = MstateWheel;
-            int c = MstateEngine;
-            int d = MstateChassis;
-
-            float СonditionResult = (a + b + c + d) / 4;
+            float СonditionResult = (stateBody + stateWheel + stateEngine + stateChassis) / 4;
 
             if (СonditionResult > 0)
             {
@@ -51,20 +46,7 @@ namespace Тechnical_Service_Station
         }
 
 
-        public void СostOFrepair()
-        {
-            float k = MstateBody;
-            float m = MstateWheel;
-            float n = MstateEngine;
-            float f = MstateChassis;
 
-            if (k > 0 && m > 0 && n > 0 && f > 0 ) ;
-
-            //float CostResult = (k * 10) + (m * 10) + (n * 10) + (f * 10);
-            float CostResult = (k + m + n + f) * costOfRrepairPart;
-
-            Console.WriteLine("Cost of repaire You car = " + CostResult + " hryvnias");
-        }
     }
 }
  

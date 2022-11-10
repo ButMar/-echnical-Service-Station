@@ -4,27 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Тechnical_Service_Station
+namespace ТechnicalServiceStation
 {
     public class Bus : Vehicle
     {
-        protected int MstateSalon;
+        protected int stateSalon;
         public Bus(string brand, string model, string color, int stateBody, int stateWheel, int stateEngine,
                int stateChassis, int stateSalon) : base(brand, model, color, stateBody, stateWheel, stateEngine, stateChassis)
         {
-            MstateSalon = stateSalon;
+            this.stateSalon = stateSalon;
         }
 
 
-        public void СonditionOFvehicle()
+        public override void СonditionOFvehicle()
         {
-            int a = MstateBody;
-            int b = MstateWheel;
-            int c = MstateEngine;
-            int d = MstateChassis;
-            int e = MstateSalon;
-
-            float СonditionResult = (a + b + c + d + e) / 5;
+            float СonditionResult = (stateBody + stateWheel + stateEngine + stateChassis + stateSalon) / 5;
 
             if (СonditionResult > 0)
             {
@@ -34,34 +28,9 @@ namespace Тechnical_Service_Station
             {
                 Console.WriteLine("Сondition of vehicle is good ");
             }
-
-                        
+             
         }
 
-
-
-        public void СostOFrepair()
-        {
-            float k = MstateBody;
-            float m = MstateWheel;
-            float n = MstateEngine;
-            float f = MstateChassis;
-            float h = MstateSalon;
-
-            if (k > 0 && m > 0 && n > 0 && f > 0 && h > 0) ;
-            {
-                var i = 1;
-                k = i;
-                m = i;
-                n = i;
-                f = i;
-                h = i;
-
-                float CostResult = (k + m + n + f + h) * costOfRrepairPart;
-
-                Console.WriteLine("Cost of repaire You car = " + CostResult + " hryvnias");
-            }
-        }
 
 
     }
