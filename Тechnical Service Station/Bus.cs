@@ -16,7 +16,7 @@ namespace ТechnicalServiceStation
         }
 
 
-        public override void СonditionOFvehicle()
+        public override float СonditionOFvehicle()
         {
             float СonditionResult = (stateBody + stateWheel + stateEngine + stateChassis + stateSalon) / 5;
 
@@ -28,7 +28,8 @@ namespace ТechnicalServiceStation
             {
                 Console.WriteLine("Сondition of vehicle is good ");
             }
-             
+
+            return СonditionResult;
         }
 
 

@@ -12,9 +12,9 @@ namespace ТechnicalServiceStation
 
         public void СostOFrepair()
         {
-            if ( СonditionOFvehicle > 0)
+            if (СonditionResult > 0)
             {
-                float CostResult = (stateBody + stateWheel + stateEngine + stateChassis + stateHydraulics + stateSalon) * costOfRrepairPart;
+                float CostResult =  * costOfRrepairPart;
 
                 Console.WriteLine("Cost of repaire You car = " + CostResult + " hryvnyas");
             }

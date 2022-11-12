@@ -30,7 +30,7 @@ namespace ТechnicalServiceStation
           this.stateChassis = stateChassis;
         }
 
-        public virtual void СonditionOFvehicle()
+        public virtual float СonditionOFvehicle()
         {
             float СonditionResult = (stateBody + stateWheel + stateEngine + stateChassis) / 4;
 
@@ -42,6 +42,9 @@ namespace ТechnicalServiceStation
             {
                 Console.WriteLine("Сondition of vehicle is good ");
             }
+
+
+            return СonditionResult;
 
         }
 

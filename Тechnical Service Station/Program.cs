@@ -12,24 +12,24 @@ namespace ТechnicalServiceStation
         {
             Vehicle Sutula = new Vehicle("toyota", "yaris", "blue", 35, 7, 3, 9);
             Sutula.СonditionOFvehicle();
-            Vehicle.СostOFrepair();
+            //Vehicle.СostOFrepair();
 
             Console.WriteLine();
 
-            Car Marynas = new Car("reno", "megan", "black", 0, 52, 3, 12);
-            Marynas.СonditionOFvehicle();
+            //Car Marynas = new Car("reno", "megan", "black", 0, 52, 3, 12);
+            //Marynas.СonditionOFvehicle();
             
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
-            Truck Gazel = new Truck("tata", "gazel", "grey", 50, 87, 20, 32, 64);
-            Gazel.СonditionOFvehicle();
+            //Truck Gazel = new Truck("tata", "gazel", "grey", 50, 87, 20, 32, 64);
+            //Gazel.СonditionOFvehicle();
             
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
-            Bus Bogdan = new Bus("etalon", "bogdan", "yellow", 0, 0, 0, 0, 0);
-            Bogdan.СonditionOFvehicle();
+            //Bus Bogdan = new Bus("etalon", "bogdan", "yellow", 0, 0, 0, 0, 0);
+            //Bogdan.СonditionOFvehicle();
            
         }
     }
