@@ -8,13 +8,13 @@ namespace ТechnicalServiceStation
 {
     public class ServiceStation
     {
-        int costOfRrepairPart = 10;
+        int costOfrepairPart = 10;
 
-        public void СostOFrepair()
+        public void CostOFrepair (Vehicle mashinca)
         {
-            if (СonditionResult > 0)
+            if (mashinca.СonditionOFvehicle() > 0)
             {
-                float CostResult =  * costOfRrepairPart;
+                float costResult = СonditionResult * costOfrepairPart;
 
                 Console.WriteLine("Cost of repaire You car = " + CostResult + " hryvnyas");
             }
