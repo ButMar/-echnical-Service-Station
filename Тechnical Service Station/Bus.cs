@@ -16,7 +16,7 @@ namespace ТechnicalServiceStation
         }
 
 
-        public override float СonditionOFvehicle()
+        public override float СonditionOFvehicle()  
         {
             float СonditionResult = (stateBody + stateWheel + stateEngine + stateChassis + stateSalon) / 5;
 

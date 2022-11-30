@@ -43,13 +43,45 @@ namespace ТechnicalServiceStation
                 Console.WriteLine("Сondition of vehicle is good ");
             }
 
-
             return СonditionResult;
-
         }
 
 
 
+        public virtual int СonditionStateBody()
+        {
+            int СonditionStateBody = stateBody;
+
+            return СonditionStateBody;
+        }
+
+
+
+        public virtual int СonditionStateWheel()
+        {
+            int СonditionStateWheel = stateWheel;
+
+            return СonditionStateWheel;
+        }
+
+
+
+
+        public virtual int СonditionStateEngine()
+        {
+            int СonditionStateEngine = stateEngine;
+
+            return СonditionStateEngine;
+        }
+
+
+
+        public virtual int СonditionStateChassis()
+        {
+            int СonditionStateChassis = stateChassis;
+
+            return СonditionStateChassis;
+        }
     }
 }
  
