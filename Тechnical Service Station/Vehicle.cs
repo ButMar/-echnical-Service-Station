@@ -48,40 +48,65 @@ namespace ТechnicalServiceStation
 
 
 
-        public virtual int СonditionStateBody()
-        {
-            int СonditionStateBody = stateBody;
+        //public virtual int СonditionStateBody()
+        //{
+        //    int СonditionStateBody = stateBody;
 
-            return СonditionStateBody;
+        //    return СonditionStateBody;
+        //}
+
+
+
+        //public virtual int СonditionStateWheel()
+        //{
+        //    int СonditionStateWheel = stateWheel;
+
+        //    return СonditionStateWheel;
+        //}
+
+
+
+
+        //public virtual int СonditionStateEngine()
+        //{
+        //    int СonditionStateEngine = stateEngine;
+
+        //    return СonditionStateEngine;
+        //}
+
+
+
+        //public virtual int СonditionStateChassis()
+        //{
+        //    int СonditionStateChassis = stateChassis;
+
+        //    return СonditionStateChassis;
+        //}
+
+        public int GetstateBody()
+        {
+            return stateBody;
         }
 
 
-
-        public virtual int СonditionStateWheel()
+        public int GetstateWheel()
         {
-            int СonditionStateWheel = stateWheel;
-
-            return СonditionStateWheel;
+            return stateWheel;
         }
 
 
-
-
-        public virtual int СonditionStateEngine()
+        public int GetstateEngine()
         {
-            int СonditionStateEngine = stateEngine;
-
-            return СonditionStateEngine;
+            return stateEngine;
         }
 
 
-
-        public virtual int СonditionStateChassis()
+        public int GetstateChassis()
         {
-            int СonditionStateChassis = stateChassis;
-
-            return СonditionStateChassis;
+            return stateChassis;
         }
+
+
     }
 }
  

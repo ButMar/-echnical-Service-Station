@@ -26,7 +26,7 @@ namespace ТechnicalServiceStation
 
         public void Repair(Vehicle mashinca)
         {
-            int stateBody = mashinca.СonditionStateBody();
+            int stateBody = mashinca.GetstateBody();
             if (stateBody <= 100 && stateBody != 0)
             {
                 stateBody--;
@@ -40,7 +40,7 @@ namespace ТechnicalServiceStation
 
 
 
-            int stateWheel = mashinca.СonditionStateWheel();
+            int stateWheel = mashinca.GetstateWheel();
             if (stateWheel <= 100 && stateWheel != 0)
             {
                 stateWheel--;
@@ -54,7 +54,7 @@ namespace ТechnicalServiceStation
 
 
 
-            int stateEngine = mashinca.СonditionStateEngine();
+            int stateEngine = mashinca.GetstateEngine();
             if (stateEngine <= 100 && stateEngine != 0)
             {
                 stateEngine--;
@@ -68,8 +68,8 @@ namespace ТechnicalServiceStation
 
 
 
-            int stateChassis = mashinca.СonditionStateChassis();
-            if (stateChassis <= 100 && stateChassis != 0 )
+            int stateChassis = mashinca.GetstateChassis();
+            if (stateChassis <= 100 && stateChassis != 0)
             {
                 stateChassis--;
                 Console.WriteLine("Chassis under repaire ");
