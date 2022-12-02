@@ -2,13 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+
 
 namespace ТechnicalServiceStation
 {
     public class ServiceStation
     {
-        int costOfrepairPart = 10;
+        private int costOfrepairPart = 10;
+        private TimerCounter timer = new TimerCounter();
+
+        public TimerCounter Timer
+        {
+            get { return timer; }
+        }
 
         public void CostOFrepair(Vehicle mashinca)
         {
@@ -26,84 +34,73 @@ namespace ТechnicalServiceStation
 
         public void Repair(Vehicle mashinca)
         {
-            int stateBody = mashinca.GetstateBody();
-            if (stateBody <= 100 && stateBody != 0)
+            //start time
+            DateTime startDate = DateTime.Now;
+
+            int stateBody = mashinca.GetStateBody();
+            for ( ; stateBody <= 100 && stateBody > 0; stateBody--)
             {
-                stateBody--;
+                Thread.Sleep(200);
                 Console.WriteLine("Body under repaire ");
             }
-            else
-            {
-                Console.WriteLine("Body repaired ");
-            }
 
+            mashinca.SetStateBody(stateBody);
+            Console.WriteLine("Body repaired ");
+            
 
-
-
-            int stateWheel = mashinca.GetstateWheel();
-            if (stateWheel <= 100 && stateWheel != 0)
+            int stateWheel = mashinca.GetStateWheel();
+            while (stateWheel <= 100 && stateWheel > 0)
             {
                 stateWheel--;
+                Thread.Sleep(300);
                 Console.WriteLine("Wheel under repaire ");
             }
-            else
-            {
+            
+            mashinca.SetStateWheel(stateWheel);
                 Console.WriteLine("Wheel repaired ");
-            }
 
-
-
-
-            int stateEngine = mashinca.GetstateEngine();
-            if (stateEngine <= 100 && stateEngine != 0)
+           
+            
+            
+            int stateEngine = mashinca.GetStateEngine();
+            while (stateEngine <= 100 && stateEngine > 0)
             {
                 stateEngine--;
+                Thread.Sleep(500);
                 Console.WriteLine("Engine under repaire ");
             }
-            else
-            {
-                Console.WriteLine("Engine repaired ");
-            }
+
+            mashinca.SetStateEngine(stateEngine);
+            Console.WriteLine("Engine repaired ");
 
 
 
 
-            int stateChassis = mashinca.GetstateChassis();
-            if (stateChassis <= 100 && stateChassis != 0)
+            int stateChassis = mashinca.GetStateChassis();
+            while (stateChassis <= 100 && stateChassis > 0)
             {
                 stateChassis--;
+                Thread.Sleep(100);
                 Console.WriteLine("Chassis under repaire ");
             }
-            else
-            {
-                Console.WriteLine("Chassis repaired ");
-            }
 
+            mashinca.SetStateChassis(stateChassis);
+            Console.WriteLine("Chassis repaired ");
 
+            // finish time
+            DateTime finishDate = DateTime.Now;
 
-            //if (stateHydraulics <= 100)
-            //{
-            //    stateHydraulics--;
-            //    Console.WriteLine("Hydraulics under repaire ");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Hydraulics repaired ");
-            //}
+            TimeSpan diff = finishDate - startDate;
 
-
-
-            //if (stateSalon <= 100)
-            //{
-            //    stateSalon--;
-            //    Console.WriteLine("Salon under repaire ");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Salon repaired ");
-            //}
-
+            timer.Minutes = (double) diff.Seconds / 60;
+            //calculate timeSpent
         }
+
+
+
+
+
+
 
 
     }

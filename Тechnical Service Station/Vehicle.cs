@@ -36,11 +36,11 @@ namespace ТechnicalServiceStation
 
             if (СonditionResult > 0)
             {
-                Console.WriteLine("Сondition of vehicle = " + СonditionResult + " Сontact the service department");
+                Console.WriteLine("Сondition of vehicle " + brand + "  " + model + " = " + СonditionResult + " Сontact the service department");
             }
             else
             {
-                Console.WriteLine("Сondition of vehicle is good ");
+                Console.WriteLine("Сondition of vehicle " + brand + "  " + model + " = " + СonditionResult + " It is good ");
             }
 
             return СonditionResult;
@@ -48,65 +48,51 @@ namespace ТechnicalServiceStation
 
 
 
-        //public virtual int СonditionStateBody()
-        //{
-        //    int СonditionStateBody = stateBody;
 
-        //    return СonditionStateBody;
-        //}
-
-
-
-        //public virtual int СonditionStateWheel()
-        //{
-        //    int СonditionStateWheel = stateWheel;
-
-        //    return СonditionStateWheel;
-        //}
-
-
-
-
-        //public virtual int СonditionStateEngine()
-        //{
-        //    int СonditionStateEngine = stateEngine;
-
-        //    return СonditionStateEngine;
-        //}
-
-
-
-        //public virtual int СonditionStateChassis()
-        //{
-        //    int СonditionStateChassis = stateChassis;
-
-        //    return СonditionStateChassis;
-        //}
-
-        public int GetstateBody()
+        public virtual int GetStateBody()
         {
             return stateBody;
         }
 
+        public virtual void SetStateBody(int body)
+        {
+            stateBody = body;
+        }
 
-        public int GetstateWheel()
+
+        public int GetStateWheel()
         {
             return stateWheel;
         }
 
+        public void SetStateWheel(int wheel)
+        {
+            stateWheel = wheel;
+        }
 
-        public int GetstateEngine()
+        public int GetStateEngine()
         {
             return stateEngine;
         }
 
 
-        public int GetstateChassis()
+        public void SetStateEngine(int engine)
+        {
+            stateEngine = engine;
+        }
+
+
+        public virtual int GetStateChassis()
         {
             return stateChassis;
         }
 
+        public virtual void SetStateChassis(int chassis)
+        {
+            stateChassis = chassis;
+        }
 
+       
     }
 }
  

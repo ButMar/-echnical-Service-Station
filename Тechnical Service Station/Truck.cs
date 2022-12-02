@@ -23,21 +23,27 @@ namespace ТechnicalServiceStation
 
             if (СonditionResult > 0)
             {
-                Console.WriteLine("Сondition of vehicle = " + СonditionResult + " Сontact the service department");
+                Console.WriteLine("Сondition of vehicle " + brand + "  " + model + " = " + СonditionResult + " Сontact the service department");
             }
             else
             {
-                Console.WriteLine("Сondition of vehicle is good ");
+                Console.WriteLine("Сondition of vehicle " + brand + "  " + model + " = " + СonditionResult + " It is good ");
             }
-
 
             return СonditionResult;
         }
 
-        //public override void СonditionOFvehicle()
-        //{
-        //    base.СonditionOFvehicle() + ;
-        //}
+
+        public override int GetStateChassis()
+        {
+            return stateChassis + stateHydraulics;
+        }
+
+        public override void  SetStateChassis(int chassis)
+        {
+            stateChassis = chassis;
+            stateHydraulics = chassis;
+        }
 
     }
 }

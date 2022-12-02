@@ -26,12 +26,23 @@ namespace ТechnicalServiceStation
             }
             else
             {
-                Console.WriteLine("Сondition of vehicle is good ");
+                Console.WriteLine("Сondition of vehicle " + brand + "  " + model + " = " + СonditionResult + " It is good ");
             }
 
             return СonditionResult;
         }
 
+
+        public override int GetStateBody()
+        {
+            return stateBody + stateSalon;
+        }
+
+        public override void SetStateBody(int body)
+        {
+            stateBody = body;
+            stateSalon = body;
+        }
 
 
     }
