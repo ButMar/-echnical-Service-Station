@@ -28,39 +28,40 @@ namespace ТechnicalServiceStation
                 summa = summa + repairPrice;
                 Thread.Sleep(repairTime);
                 Console.WriteLine(" Part under repaire ");
-            }
-             
+            }             
             return summa;
         }
 
 
         public Check[] Repair(Vehicle[] mashinki)
         {
-            Check TotalCheck = 0;  // в цю змынну записуються всі чеки
+            Check[] TotalCheck = null;  
             for (int i = 0; i < mashinki.Length; i++)
             {
-                
+                TotalCheck = new Check[i];
+                Console.WriteLine(TotalCheck);        
             }
             
+
             foreach (Vehicle mashinca in mashinki)
             {
                 DateTime startDate = DateTime.Now;
 
                 int sumBody = RepairePart(mashinca.GetStateBody(), priceList.BodyRepairPrice, priceList.BodyRepairTime);
                 mashinca.SetStateBody(0);
-                Console.WriteLine("Body repaired ");
+                Console.WriteLine( mashinca.Brand + "  " + mashinca.Model + "  " + "Body repaired ");
 
                 int sumWheel = RepairePart(mashinca.GetStateWheel(), priceList.WheelRepairPrice, priceList.WheelRepairTime);
                 mashinca.SetStateWheel(0);
-                Console.WriteLine("Wheel repaired ");
+                Console.WriteLine( mashinca.Brand + "  " + mashinca.Model + "  " + "Wheel repaired ");
 
                 int sumEngine = RepairePart(mashinca.GetStateEngine(), priceList.EngineRepairPrice, priceList.EngineRepairTime);
                 mashinca.SetStateEngine(0);
-                Console.WriteLine("Engine repaired ");
+                Console.WriteLine( mashinca.Brand + "  " + mashinca.Model + "  " + "Engine repaired ");
 
                 int sumChassis = RepairePart(mashinca.GetStateChassis(), priceList.ChassisRepairPrice, priceList.ChassisRepairTime);
                 mashinca.SetStateChassis(0);
-                Console.WriteLine("Chassis repaired ");
+                Console.WriteLine(mashinca.Brand + "  " + mashinca.Model + "  " + "Chassis repaired ");
 
                 int totalSum = sumBody + sumWheel + sumEngine + sumChassis;
 
@@ -73,9 +74,8 @@ namespace ТechnicalServiceStation
                 Check checkForWork = new Check();
                 checkForWork.TimeSpent = timer.Minutes;
                 checkForWork.RepaireCost = totalSum;
-
-                return checkForWork;
             }
+
             return TotalCheck;
         }
 

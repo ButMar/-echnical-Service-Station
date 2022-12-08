@@ -21,6 +21,7 @@ namespace ТechnicalServiceStation
             Car sutula = new Car("toyota", "yaris", "blue", 5, 7, 3, 6);
             Car marynas = new Car("reno", "megan", "black", 9, 0, 6, 2);
             Vehicle[] cars = new Vehicle[] { mashina1, bogdan, sutula, marynas };
+            sto.Repair(cars);
 
 
             //Manager olya = new Manager();
