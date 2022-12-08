@@ -45,12 +45,18 @@
   <ItemGroup>
     <Compile Include="Bus.cs" />
     <Compile Include="Car.cs" />
+    <Compile Include="EngineeringCalculator.cs" />
+    <Compile Include="Manager.cs" />
+    <Compile Include="PriceList.cs" />
     <Compile Include="Service Station.cs" />
+    <Compile Include="Table.cs" />
     <Compile Include="TimerCounter.cs" />
+    <Compile Include="Toy.cs" />
     <Compile Include="Truck.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Сheck.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -30,20 +30,33 @@ namespace ТechnicalServiceStation
           this.stateChassis = stateChassis;
         }
 
+     
+        public string Brand
+        {
+            get { return brand; }
+            private set { }
+        }
+
+
+        public string Model
+        {
+            get { return model; }
+            private set { }
+        }
+
+
+        public string Color
+        {
+            get { return color; }
+            private set { }
+        }
+
+
         public virtual float СonditionOFvehicle()
         {
-            float СonditionResult = (stateBody + stateWheel + stateEngine + stateChassis) / 4;
+            float conditionResult = (stateBody + stateWheel + stateEngine + stateChassis) / 4;
 
-            if (СonditionResult > 0)
-            {
-                Console.WriteLine("Сondition of vehicle " + brand + "  " + model + " = " + СonditionResult + " Сontact the service department");
-            }
-            else
-            {
-                Console.WriteLine("Сondition of vehicle " + brand + "  " + model + " = " + СonditionResult + " It is good ");
-            }
-
-            return СonditionResult;
+            return conditionResult;
         }
 
 
@@ -92,7 +105,8 @@ namespace ТechnicalServiceStation
             stateChassis = chassis;
         }
 
-       
+
+
     }
 }
  

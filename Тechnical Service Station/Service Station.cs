@@ -10,97 +10,88 @@ namespace ТechnicalServiceStation
 {
     public class ServiceStation
     {
-        private int costOfrepairPart = 10;
         private TimerCounter timer = new TimerCounter();
+        private PriceList priceList = new PriceList();
 
         public TimerCounter Timer
         {
             get { return timer; }
         }
 
-        public void CostOFrepair(Vehicle mashinca)
+        private int RepairePart(int state, int repairPrice, int repairTime)
         {
-            float condition = mashinca.СonditionOFvehicle();
+            int summa = 0;
 
-            if (condition > 0)
+            while (state <= 100 && state > 0)
             {
-                float costResult = condition * costOfrepairPart;
-
-                Console.WriteLine("Cost of repaire You car = " + costResult + " hryvnyas");
+                state--;
+                summa = summa + repairPrice;
+                Thread.Sleep(repairTime);
+                Console.WriteLine(" Part under repaire ");
             }
+             
+            return summa;
         }
 
 
-
-        public void Repair(Vehicle mashinca)
+        public Check[] Repair(Vehicle[] mashinki)
         {
-            //start time
-            DateTime startDate = DateTime.Now;
-
-            int stateBody = mashinca.GetStateBody();
-            for ( ; stateBody <= 100 && stateBody > 0; stateBody--)
+            Check TotalCheck = 0;  // в цю змынну записуються всі чеки
+            for (int i = 0; i < mashinki.Length; i++)
             {
-                Thread.Sleep(200);
-                Console.WriteLine("Body under repaire ");
-            }
-
-            mashinca.SetStateBody(stateBody);
-            Console.WriteLine("Body repaired ");
-            
-
-            int stateWheel = mashinca.GetStateWheel();
-            while (stateWheel <= 100 && stateWheel > 0)
-            {
-                stateWheel--;
-                Thread.Sleep(300);
-                Console.WriteLine("Wheel under repaire ");
+                
             }
             
-            mashinca.SetStateWheel(stateWheel);
+            foreach (Vehicle mashinca in mashinki)
+            {
+                DateTime startDate = DateTime.Now;
+
+                int sumBody = RepairePart(mashinca.GetStateBody(), priceList.BodyRepairPrice, priceList.BodyRepairTime);
+                mashinca.SetStateBody(0);
+                Console.WriteLine("Body repaired ");
+
+                int sumWheel = RepairePart(mashinca.GetStateWheel(), priceList.WheelRepairPrice, priceList.WheelRepairTime);
+                mashinca.SetStateWheel(0);
                 Console.WriteLine("Wheel repaired ");
 
-           
-            
-            
-            int stateEngine = mashinca.GetStateEngine();
-            while (stateEngine <= 100 && stateEngine > 0)
-            {
-                stateEngine--;
-                Thread.Sleep(500);
-                Console.WriteLine("Engine under repaire ");
+                int sumEngine = RepairePart(mashinca.GetStateEngine(), priceList.EngineRepairPrice, priceList.EngineRepairTime);
+                mashinca.SetStateEngine(0);
+                Console.WriteLine("Engine repaired ");
+
+                int sumChassis = RepairePart(mashinca.GetStateChassis(), priceList.ChassisRepairPrice, priceList.ChassisRepairTime);
+                mashinca.SetStateChassis(0);
+                Console.WriteLine("Chassis repaired ");
+
+                int totalSum = sumBody + sumWheel + sumEngine + sumChassis;
+
+                DateTime finishDate = DateTime.Now;
+
+                TimeSpan diff = finishDate - startDate;
+
+                timer.Minutes = (double)diff.Seconds / 60;
+
+                Check checkForWork = new Check();
+                checkForWork.TimeSpent = timer.Minutes;
+                checkForWork.RepaireCost = totalSum;
+
+                return checkForWork;
             }
-
-            mashinca.SetStateEngine(stateEngine);
-            Console.WriteLine("Engine repaired ");
-
-
-
-
-            int stateChassis = mashinca.GetStateChassis();
-            while (stateChassis <= 100 && stateChassis > 0)
-            {
-                stateChassis--;
-                Thread.Sleep(100);
-                Console.WriteLine("Chassis under repaire ");
-            }
-
-            mashinca.SetStateChassis(stateChassis);
-            Console.WriteLine("Chassis repaired ");
-
-            // finish time
-            DateTime finishDate = DateTime.Now;
-
-            TimeSpan diff = finishDate - startDate;
-
-            timer.Minutes = (double) diff.Seconds / 60;
-            //calculate timeSpent
+            return TotalCheck;
         }
 
 
-
-
-
-
+        public static void PrintCondition(Vehicle mashinca)
+        {
+            float conditionResult = mashinca.СonditionOFvehicle();
+            if (conditionResult > 0)
+            {
+                Console.WriteLine("Сondition of vehicle " + mashinca.Brand + "  " + mashinca.Model + " = " + conditionResult + " Сontact the service department");
+            }
+            else
+            {
+                Console.WriteLine("Сondition of vehicle " + mashinca.Brand + "  " + mashinca.Model + " = " + conditionResult + " It is good ");
+            }
+        }
 
 
     }

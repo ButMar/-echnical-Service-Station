@@ -18,18 +18,9 @@ namespace ТechnicalServiceStation
 
         public override float СonditionOFvehicle()  
         {
-            float СonditionResult = (stateBody + stateWheel + stateEngine + stateChassis + stateSalon) / 5;
+            float conditionResult = (stateBody + stateWheel + stateEngine + stateChassis + stateSalon) / 5;
 
-            if (СonditionResult > 0)
-            {
-                Console.WriteLine("Сondition of vehicle = " + СonditionResult + " Сontact the service department");
-            }
-            else
-            {
-                Console.WriteLine("Сondition of vehicle " + brand + "  " + model + " = " + СonditionResult + " It is good ");
-            }
-
-            return СonditionResult;
+            return conditionResult;
         }
 
 
