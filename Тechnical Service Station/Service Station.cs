@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -35,10 +36,10 @@ namespace ТechnicalServiceStation
 
         public Check[] Repair(Vehicle[] mashinki)
         {
-            Check[] TotalCheck = null;  
+            Check[] TotalCheck = null;              
             for (int i = 0; i < mashinki.Length; i++)
             {
-                TotalCheck = new Check[i];
+                TotalCheck = TotalCheck + TotalCheck[i];
                 Console.WriteLine(TotalCheck);        
             }
             
